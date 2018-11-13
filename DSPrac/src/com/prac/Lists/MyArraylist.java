@@ -1,6 +1,6 @@
-package com.prac.Arrays;
+package com.prac.Lists;
 
-public class MyArraylist {
+public class MyArraylist<T> {
 
     public static int MAX_CAPACITY = 5;
     public Object[] myList;
@@ -23,7 +23,7 @@ public class MyArraylist {
 
     }
 
-    public void add(Object e) {
+    public void add(T e) {
 	if (currentIndex == MAX_CAPACITY)
 	    ensureCapacity();
 	myList[currentIndex] = e;
@@ -42,26 +42,25 @@ public class MyArraylist {
 	this.currentIndex--;
     }
 
-    public Object get(int index) throws Exception {
+    public T get(int index) throws Exception {
 
 	if (index > currentIndex-1)
 	    throw new IndexOutOfBoundsException("LastIndex is " + (currentIndex-1));
 	else if (index < 0)
 	    throw new Exception("please enter a positive value");
 	else
-	    return myList[index];
+	    return (T) myList[index];
 
     }
 
     public static void main(String[] args) throws Exception {
-	MyArraylist ml = new MyArraylist();
-	ml.add("Jai");
+	MyArraylist<String> ml = new MyArraylist<String>();
 	ml.add("Kiran");
 	ml.add("Kriran");
 	ml.add("Kifran");
 	ml.add("Kirhgan");
 	ml.add("Kirahn");
-	System.out.println(ml.get(1));
+	System.out.println(ml.get(0));
 	ml.remove(0);
 	System.out.println(ml.get(1));
     }
