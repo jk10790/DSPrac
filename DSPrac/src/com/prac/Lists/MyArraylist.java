@@ -42,6 +42,7 @@ public class MyArraylist<T> {
 	this.currentIndex--;
     }
 
+    @SuppressWarnings("unchecked")
     public T get(int index) throws Exception {
 
 	if (index > currentIndex-1)
